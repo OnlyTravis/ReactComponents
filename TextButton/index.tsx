@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 import styles from './index.module.css';
 
 interface TextButtonProp {
@@ -9,8 +9,10 @@ interface TextButtonProp {
 }
 // animation: "", expand, brighten, darken
 
-const TextButton:FC<> ({onClick, className="", animation="", children}: TextButtonProp) {
+const TextButton:FC<TextButtonProp> = ({onClick, className="", animation="", children}: TextButtonProp) => {
     return (
-    <button onClick={onClick} className={ `${styles.text_button} ${className} ${animation?styles[animation]:""}` }>{ children }</button>  
+        <button onClick={onClick} className={ `${styles.text_button} ${className} ${animation?styles[animation]:""}` }>{ children }</button>  
     );
 }
+
+export default TextButton;

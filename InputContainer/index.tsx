@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import styles from './input_container.module.css';
 
 interface InputContainerProp {
@@ -10,11 +11,12 @@ interface InputContainerProp {
     placeholder?: any
 }
 
-export default function InputContainer({ label, type, id, className="", defaultValue="", placeholder="", onchange=()=>{}}: InputContainerProp): JSX.Element {
+const InputContainer:FC<InputContainerProp> = ({ label, type, id, className="", defaultValue="", placeholder="", onchange=()=>{}}: InputContainerProp) => {
     return (
-    <div className={styles.input_container+className}>
-        <label>{label}</label>
-        <input type={type} id={id} defaultValue={defaultValue} placeholder={placeholder} onChange={onchange}/>
-    </div>
+        <div className={styles.input_container+className}>
+            <label>{label}</label>
+            <input type={type} id={id} defaultValue={defaultValue} placeholder={placeholder} onChange={onchange}/>
+        </div>
     );
 }
+export default InputContainer;
